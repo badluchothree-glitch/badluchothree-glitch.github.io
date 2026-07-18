@@ -171,7 +171,8 @@
         const SUPABASE_URL = 'https://phakxkbqbgfuhijkcnxy.supabase.co';
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBoYWt4a2JxYmdmdWhpamtjbnh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQzODM1NDUsImV4cCI6MjA5OTk1OTU0NX0.FNELyDZERxePnoMg-C6aLcV5SJcNK3fRadlstT3heQ0';
         
-       const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      // Inicialización oficial de la versión v2
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
         // 1. Obtener usuario desde la URL (?usuario=Nombre)
         const urlParams = new URLSearchParams(window.location.search);
@@ -196,11 +197,12 @@
                 card.querySelector('.btn').textContent = "Reservar este regalo";
             });
             
-            // Traer todas las reservas de la base de datos (usando supabaseClient)
+            // Traer todas las reservas de la base de datos
             const { data: reservas, error } = await supabaseClient.from('reservas').select('*');
             
             if (error) {
                 console.error("Error cargando datos:", error);
+                alert("Error cargando datos: " + error.message);
                 return;
             }
 
@@ -225,7 +227,7 @@
             }
         }
 
-// 3. Lógica interactiva con la base de datos en tiempo real (Con control de errores)
+        // 3. Lógica interactiva con la base de datos en tiempo real
         async function toggleReservation(itemId) {
             let errorLog = null;
 
@@ -243,7 +245,6 @@
                 errorLog = error;
             }
 
-            // Si Supabase nos rechaza la operación, nos la mostrará en una alerta
             if (errorLog) {
                 alert("Error de conexión con Supabase: " + errorLog.message);
                 console.error(errorLog);
