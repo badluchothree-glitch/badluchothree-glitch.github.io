@@ -225,21 +225,32 @@
             }
         }
 
-        // 3. Lógica interactiva con la base de datos en tiempo real
+// 3. Lógica interactiva con la base de datos en tiempo real (Con control de errores)
         async function toggleReservation(itemId) {
-            // Caso A: El usuario hace clic en su PROPIO regalo reservado -> Lo libera (usando supabaseClient)
+            let errorLog = null;
+
+            // Caso A: El usuario hace clic en su PROPIO regalo reservado -> Lo libera
             if (miReservaActual === itemId) {
-                await supabaseClient.from('reservas').delete().eq('usuario', currentUser);
+                const { error } = await supabaseClient.from('reservas').delete().eq('usuario', currentUser);
+                errorLog = error;
             } 
             // Caso B: El usuario cambia de regalo o selecciona uno nuevo
             else {
-                // Borramos cualquier reserva previa que tuviera este usuario para asegurar que solo tenga una
+                // Borramos cualquier reserva previa
                 await supabaseClient.from('reservas').delete().eq('usuario', currentUser);
                 // Insertamos la nueva reserva
-                await supabaseClient.from('reservas').insert([{ articulo_id: itemId, usuario: currentUser }]);
+                const { error } = await supabaseClient.from('reservas').insert([{ articulo_id: itemId, usuario: currentUser }]);
+                errorLog = error;
             }
 
-            // Recargar la lista desde el servidor para actualizar el estado visual de todos
+            // Si Supabase nos rechaza la operación, nos la mostrará en una alerta
+            if (errorLog) {
+                alert("Error de conexión con Supabase: " + errorLog.message);
+                console.error(errorLog);
+                return;
+            }
+
+            // Recargar la lista desde el servidor si todo ha ido bien
             inicializarLista();
         }
     </script>
