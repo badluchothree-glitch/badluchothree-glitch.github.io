@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Deseos Especial</title>
+    <!-- Cargamos la librería oficial de Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        :root {
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --accent-color: #2ecc71;
+            --reserved-color: #7f8c8d;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .user-badge {
+            background-color: #e8f8f5;
+            color: #117a65;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.2s, opacity 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #eaeaea;
+        }
+
+        .card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            margin: 0 0 10px 0;
+            font-size: 1.4rem;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: #666;
+            flex-grow: 1;
+            margin-bottom: 15px;
+        }
+
+        .card-links {
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+        }
+
+        .card-links a {
+            color: #3498db;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .card-links a:hover {
+            text-decoration: underline;
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background-color: #27ae60;
+        }
+
+        /* Estado Reservado (Gris) */
+        .card.reserved {
+            opacity: 0.55;
+            filter: grayscale(100%);
+        }
+
+        .card.reserved .btn {
+            background-color: var(--reserved-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Lista de Deseos</h1>
+        <div id="user-info" class="user-badge">Cargando lista...</div>
+    </header>
+
+    <main class="grid" id="wishlist-grid">
+        <!-- Yo-yo -->
+        <div class="card" id="item-yoyo">
+            <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=500" alt="Yo-yo profesional" class="card-img">
+            <div class="card-content">
+                <h3 class="card-title">Yo-yo de Rodamientos</h3>
+                <p class="card-desc">Yo-yo de aluminio perfecto para trucos avanzados y de larga duración girando.</p>
+                <div class="card-links">
+                    <span>Dónde comprar:</span>
+                    <a href="https://amazon.com" target="_blank">Amazon</a>
+                    <a href="https://aliexpress.com" target="_blank">AliExpress</a>
+                </div>
+                <button class="btn" onclick="toggleReservation('item-yoyo')">Reservar este regalo</button>
+            </div>
+        </div>
+
+        <!-- Peonza -->
+        <div class="card" id="item-peonza">
+            <img src="https://images.unsplash.com/photo-1603481588273-2f908a9a7a1b?w=500" alt="Peonza tradicional" class="card-img">
+            <div class="card-content">
+                <h3 class="card-title">Peonza de Madera</h3>
+                <p class="card-desc">Peonza clásica con punta de metal y cuerda de alta resistencia incluida.</p>
+                <div class="card-links">
+                    <span>Dónde comprar:</span>
+                    <a href="https://amazon.com" target="_blank">Amazon</a>
+                    <a href="https://tiendalocal.com" target="_blank">Tienda Local</a>
+                </div>
+                <button class="btn" onclick="toggleReservation('item-peonza')">Reservar este regalo</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // CONFIGURACIÓN DE TU SERVIDOR SUPABASE (Sustituye con tus credenciales)
+        const SUPABASE_URL = 'https://phakxkbqbgfuhijkcnxy.supabase.co/rest/v1/';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBoYWt4a2JxYmdmdWhpamtjbnh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQzODM1NDUsImV4cCI6MjA5OTk1OTU0NX0.FNELyDZERxePnoMg-C6aLcV5SJcNK3fRadlstT3heQ0';
+        
+       const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // 1. Obtener usuario desde la URL (?usuario=Nombre)
+        const urlParams = new URLSearchParams(window.location.search);
+        let currentUser = urlParams.get('usuario');
+
+        if (!currentUser) {
+            document.getElementById('user-info').textContent = "Acceso denegado: Enlace de invitado inválido.";
+            document.getElementById('wishlist-grid').style.display = 'none';
+        } else {
+            document.getElementById('user-info').textContent = `Invitado: ${currentUser}`;
+            inicializarLista();
+        }
+
+        // Variable para saber qué tiene reservado ESTE usuario en concreto
+        let miReservaActual = null;
+
+        // 2. Cargar estado actual desde la base de datos al abrir la página
+        async function inicializarLista() {
+            // Limpiar estados visuales previos
+            document.querySelectorAll('.card').forEach(card => {
+                card.classList.remove('reserved');
+                card.querySelector('.btn').textContent = "Reservar este regalo";
+            });
+            
+            // Traer todas las reservas de la base de datos (usando supabaseClient)
+            const { data: reservas, error } = await supabaseClient.from('reservas').select('*');
+            
+            if (error) {
+                console.error("Error cargando datos:", error);
+                return;
+            }
+
+            miReservaActual = null;
+
+            if (reservas) {
+                reservas.forEach(res => {
+                    const card = document.getElementById(res.articulo_id);
+                    if (card) {
+                        card.classList.add('reserved');
+                        const btn = card.querySelector('.btn');
+                        
+                        // Si la reserva coincide con el usuario actual de la URL
+                        if (res.usuario === currentUser) {
+                            miReservaActual = res.articulo_id;
+                            btn.textContent = "Tu Reserva (Hacer clic para liberar)";
+                        } else {
+                            btn.textContent = "Reservado";
+                        }
+                    }
+                });
+            }
+        }
+
+        // 3. Lógica interactiva con la base de datos en tiempo real
+        async function toggleReservation(itemId) {
+            // Caso A: El usuario hace clic en su PROPIO regalo reservado -> Lo libera (usando supabaseClient)
+            if (miReservaActual === itemId) {
+                await supabaseClient.from('reservas').delete().eq('usuario', currentUser);
+            } 
+            // Caso B: El usuario cambia de regalo o selecciona uno nuevo
+            else {
+                // Borramos cualquier reserva previa que tuviera este usuario para asegurar que solo tenga una
+                await supabaseClient.from('reservas').delete().eq('usuario', currentUser);
+                // Insertamos la nueva reserva
+                await supabaseClient.from('reservas').insert([{ articulo_id: itemId, usuario: currentUser }]);
+            }
+
+            // Recargar la lista desde el servidor para actualizar el estado visual de todos
+            inicializarLista();
+        }
+    </script>
+</body>
+</html>
