@@ -143,14 +143,14 @@
                 <p class="card-desc">Yo-yo de aluminio perfecto para trucos avanzados y de larga duración girando.</p>
                 <div class="card-links">
                     <span>Dónde comprar:</span>
-                    <a href="https://amzn.eu/d/00iumKvk="_blank">Amazon</a>
+                    <a href="https://amzn.eu/d/00iumKvk" target="_blank">Amazon</a>
                     <a href="https://aliexpress.com" target="_blank">AliExpress</a>
                 </div>
                 <button class="btn" onclick="toggleReservation('item-yoyo')">Reservar este regalo</button>
             </div>
         </div>
 
-        <!-- Peonza -->
+        <!-- Pizarra -->
         <div class="card" id="item-pizarra">
             <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSRpv5WR3grjgX7_hXDM4sWgdE_J9F4QZqL3BoWRTKLk5lpXPbNypMjXpgk4yonhJaTDf4TDPdA9smeoBPr6S0uPagGGovK9A" class="card-img">
             <div class="card-content">
@@ -164,9 +164,8 @@
                 <button class="btn" onclick="toggleReservation('item-pizarra')">Reservar este regalo</button>
             </div>
         </div>
-    </main>
 
-            <!-- Mono -->
+        <!-- Mono -->
         <div class="card" id="item-mono">
             <img src="https://m.media-amazon.com/images/I/71pzKnyVrhL._AC_SL1500_.jpg" class="card-img">
             <div class="card-content">
@@ -183,11 +182,11 @@
     </main>
 
     <script>
-        // CONFIGURACIÓN DE TU SERVIDOR SUPABASE (Sustituye con tus credenciales)
+        // CONFIGURACIÓN DE TU SERVIDOR SUPABASE
         const SUPABASE_URL = 'https://phakxkbqbgfuhijkcnxy.supabase.co';
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBoYWt4a2JxYmdmdWhpamtjbnh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQzODM1NDUsImV4cCI6MjA5OTk1OTU0NX0.FNELyDZERxePnoMg-C6aLcV5SJcNK3fRadlstT3heQ0';
         
-      // Inicialización oficial de la versión v2
+        // Inicialización oficial de la versión v2
         const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
         // 1. Obtener usuario desde la URL (?usuario=Nombre)
