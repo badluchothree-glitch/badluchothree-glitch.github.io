@@ -28,7 +28,7 @@
 
         header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .user-badge {
@@ -39,6 +39,23 @@
             font-weight: bold;
             margin-top: 10px;
             display: inline-block;
+        }
+
+        /* Estilos para la nueva caja de introducción */
+        .intro-text {
+            background-color: var(--card-bg);
+            padding: 15px 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            max-width: 850px;
+            text-align: center;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .intro-text p {
+            margin: 8px 0;
+            font-size: 1.05rem;
         }
 
         .grid {
@@ -124,15 +141,31 @@
 
         .card.reserved .btn {
             background-color: var(--reserved-color);
+            cursor: not-allowed;
+        }
+        
+        /* El botón de tu propia reserva vuelve a ser clicable */
+        .card.reserved .btn.my-reservation {
+            cursor: pointer;
+            background-color: #e67e22; /* Un color distinto para que sepa que es suya */
+        }
+        .card.reserved .btn.my-reservation:hover {
+            background-color: #d35400;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Lista de Deseos</h1>
+        <h1>Lista de Deseos 🎂</h1>
         <div id="user-info" class="user-badge">Cargando lista...</div>
     </header>
+
+    <!-- Nueva sección de introducción -->
+    <div class="intro-text">
+        <p>🎁 <strong>¡Ideas de regalos que le encantaría recibir al cumpleañero!</strong> 🎉</p>
+        <p>Si decides regalarle alguna de estas cositas, por favor, pulsa en el botón para marcarlo como <strong>reservado</strong>. <br>Así el resto de invitados sabrán que ya se lo vas a regalar tú y ¡evitaremos repetir regalos! 😉✨</p>
+    </div>
 
     <main class="grid" id="wishlist-grid">
         <!-- Yo-yo -->
@@ -179,9 +212,8 @@
                 <button class="btn" onclick="toggleReservation('item-mono')">Reservar este regalo</button>
             </div>
         </div>
-    </main>
 
-            <!-- Máscara -->
+        <!-- Máscara (Movido dentro del main principal) -->
         <div class="card" id="item-mascara">
             <img src="https://m.media-amazon.com/images/I/712uCN2C5HL._AC_SX679_.jpg" class="card-img">
             <div class="card-content">
@@ -212,6 +244,7 @@
         if (!currentUser) {
             document.getElementById('user-info').textContent = "Acceso denegado: Enlace de invitado inválido.";
             document.getElementById('wishlist-grid').style.display = 'none';
+            document.querySelector('.intro-text').style.display = 'none';
         } else {
             document.getElementById('user-info').textContent = `Invitado: ${currentUser}`;
             inicializarLista();
@@ -225,7 +258,9 @@
             // Limpiar estados visuales previos
             document.querySelectorAll('.card').forEach(card => {
                 card.classList.remove('reserved');
-                card.querySelector('.btn').textContent = "Reservar este regalo";
+                const btn = card.querySelector('.btn');
+                btn.classList.remove('my-reservation');
+                btn.textContent = "Reservar este regalo";
             });
             
             // Traer todas las reservas de la base de datos
@@ -249,16 +284,17 @@
                         // Si la reserva coincide con el usuario actual de la URL
                         if (res.usuario === currentUser) {
                             miReservaActual = res.articulo_id;
-                            btn.textContent = "Tu Reserva (Hacer clic para liberar)";
+                            btn.classList.add('my-reservation');
+                            btn.textContent = "Tu Reserva (Clic para cancelar)";
                         } else {
-                            btn.textContent = "Reservado";
+                            btn.textContent = "Ya reservado por alguien";
                         }
                     }
                 });
             }
         }
 
-        // 3. Lógica interactiva con la base de datos en tiempo real
+        // 3. Lógica interactiva con validación anti-duplicados
         async function toggleReservation(itemId) {
             let errorLog = null;
 
@@ -267,10 +303,29 @@
                 const { error } = await supabaseClient.from('reservas').delete().eq('usuario', currentUser);
                 errorLog = error;
             } 
-            // Caso B: El usuario cambia de regalo o selecciona uno nuevo
+            // Caso B: El usuario intenta reservar un artículo nuevo
             else {
-                // Borramos cualquier reserva previa
+                // VERIFICACIÓN: Comprobamos en la base de datos si alguien más lo ha reservado ya
+                const { data: checkData, error: checkError } = await supabaseClient
+                    .from('reservas')
+                    .select('*')
+                    .eq('articulo_id', itemId);
+
+                if (checkError) {
+                    alert("Error verificando disponibilidad: " + checkError.message);
+                    return;
+                }
+
+                if (checkData && checkData.length > 0) {
+                    // Si ya existe una reserva para este artículo, bloqueamos la acción
+                    alert("¡Ups! 😅 Otro invitado acaba de reservar este regalo. Por favor, elige otro.");
+                    inicializarLista(); // Refrescamos la lista para mostrar el estado real
+                    return;
+                }
+
+                // Si está libre, primero borramos la reserva anterior de este usuario (si tuviera)
                 await supabaseClient.from('reservas').delete().eq('usuario', currentUser);
+                
                 // Insertamos la nueva reserva
                 const { error } = await supabaseClient.from('reservas').insert([{ articulo_id: itemId, usuario: currentUser }]);
                 errorLog = error;
