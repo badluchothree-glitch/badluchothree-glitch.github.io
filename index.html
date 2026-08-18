@@ -706,6 +706,39 @@
         // Inicialización oficial de la versión v2
         const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+        //nueva parte código
+        // 1. Obtener el nombre del usuario desde la URL (ej: ?usuario=Prueba)
+const urlParams = new URLSearchParams(window.location.search);
+const usuarioURL = urlParams.get('usuario');
+
+// 2. Función para registrar el acceso mediante la función de Supabase
+async function registrarAccesoAuto() {
+    if (!usuarioURL) {
+        console.log('No se proporcionó ningún usuario en la URL.');
+        return;
+    }
+
+    try {
+        const { error } = await supabaseClient
+            .rpc('registrar_acceso', { p_usuario: usuarioURL });
+
+        if (error) {
+            console.error('Error al registrar acceso en Supabase:', error.message);
+        } else {
+            console.log(`Acceso registrado con éxito para: ${usuarioURL}`);
+        }
+    } catch (err) {
+        console.error('Error inesperado:', err);
+    }
+}
+
+// 3. Ejecutar automáticamente al cargar la página
+window.addEventListener('DOMContentLoaded', () => {
+    registrarAccesoAuto();
+});
+
+        //fin nueva parte
+
         // 1. Obtener usuario desde la URL (?usuario=Nombre)
         const urlParams = new URLSearchParams(window.location.search);
         let currentUser = urlParams.get('usuario');
