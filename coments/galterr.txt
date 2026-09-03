@@ -1,42 +1,42 @@
 [
     [
-        "SergioPlay_21",
-        "https://api.dicebear.com/8.x/micah/svg?seed=rocket-412501",
-        "La gallina corriendo por el corral me mata 😂🐔"
+        "CarlosAventuras23",
+        "https://picsum.photos/seed/3406/200/200",
+        "La gallina no para ni un segundo 😂🐔"
     ],
     [
-        "MadridAcuario",
-        "https://api.dicebear.com/8.x/avataaars/svg?seed=hero-330423",
-        "Ese “abre otro portal” se me ha quedado en la cabeza ✨🚪"
+        "SofiaCanta7",
+        "https://api.dicebear.com/8.x/fun-emoji/svg?seed=dog-472509",
+        "Ese portal de terrenos parece sacado de un juego 🎮✨"
     ],
     [
-        "RobloxLeo7",
-        "https://api.dicebear.com/8.x/fun-emoji/svg?seed=superhero-468536",
-        "Uvas, fresas y calabacín, menudo inventario 🍇🍓🥒"
+        "ValenciaLucia",
+        "https://api.dicebear.com/8.x/micah/svg?seed=vehiculo-182446",
+        "Las fresas y las uvas ya son parte de la misión 🍓🍇"
     ],
     [
-        "ElsaGamer12",
-        "https://api.dicebear.com/8.x/adventurer/svg?seed=magic-302091",
-        "El gallo enfadado es el verdadero jefe final 😂🐓"
+        "MinecraftLoco9",
+        "https://api.dicebear.com/8.x/bottts/svg?seed=dog-408306",
+        "El gallo enfadado es el jefe final de esta canción 😂🐓"
     ],
     [
-        "Numberblocks6",
-        "https://api.dicebear.com/8.x/adventurer/svg?seed=bear-730301",
-        "Tres gallinas y a correr, misión completada 🐔🐔🐔"
+        "ElsaMagia5",
+        "https://api.dicebear.com/8.x/lorelei/svg?seed=queen-830264",
+        "La parte de la piscina y luego el barro me hace mucha gracia jajaja"
     ],
     [
-        "TerraGreenFan",
-        "https://api.dicebear.com/8.x/bottts/svg?seed=coche-886270",
-        "Lo del barro, las botas y los nuevos terrenos le da vibra de aventura de videojuego y queda genial con el estribillo."
+        "TralaleroToni",
+        "https://api.dicebear.com/8.x/lorelei/svg?seed=superhero-802677",
+        "Gallina terrenal, abre otro portal 🐔🚪"
     ],
     [
-        "AcuarioNico",
-        "https://api.dicebear.com/8.x/bottts/svg?seed=castle-259784",
-        "La paloma que cuidan antes de soltarla es un detalle muy bonito ❤️🕊️"
+        "Numberblocks8",
+        "https://picsum.photos/seed/9543/200/200",
+        "Tres gallinas corriendo y yo ya estoy dentro de la misión 😂"
     ],
     [
-        "MinecraftMario9",
-        "https://api.dicebear.com/8.x/adventurer/svg?seed=car-82432",
-        "Necesito desbloquear el terreno secreto ya mismo 🎮🌾"
+        "TerraGreenAventuras",
+        "https://api.dicebear.com/8.x/lorelei/svg?seed=animal-89208",
+        "Me gusta que cada terreno tenga un reto distinto, entre los huevos, las cosechas y los portales parece una aventura que siempre empieza de nuevo."
     ]
 ]
