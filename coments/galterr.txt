@@ -1,0 +1,42 @@
+[
+    [
+        "Mario123",
+        "https://api.dicebear.com/8.x/lorelei/svg?seed=bear-978072",
+        "Esta canción de la gallina se me ha quedado pegada 😂🐔"
+    ],
+    [
+        "BlueyFan",
+        "https://api.dicebear.com/8.x/adventurer/svg?seed=trex-530500",
+        "La parte de “corre, corre rápido” es demasiado divertida jajaja"
+    ],
+    [
+        "Pikachu88",
+        "https://api.dicebear.com/8.x/avataaars/svg?seed=ninja-139075",
+        "Uvas, fresas y un calabacín, necesito jugar este nivel ya 🍓🎮"
+    ],
+    [
+        "MadridKids",
+        "https://api.dicebear.com/8.x/avataaars/svg?seed=space-388438",
+        "El gallo enfadado me da mucha risa 🐓😂"
+    ],
+    [
+        "SonicFan7",
+        "https://api.dicebear.com/8.x/lorelei/svg?seed=pirate-792608",
+        "Gallina terrenal, ¡juega otra vez! 🎮🐔"
+    ],
+    [
+        "MinecraftAlex",
+        "https://api.dicebear.com/8.x/adventurer/svg?seed=bear-470301",
+        "El portal para desbloquear terrenos parece un nivel secreto 😎✨"
+    ],
+    [
+        "PeppaPig",
+        "https://api.dicebear.com/8.x/fun-emoji/svg?seed=dinosaurio-568084",
+        "La escucharía mil veces en el coche jajajaja"
+    ],
+    [
+        "Lucas42",
+        "https://api.dicebear.com/8.x/micah/svg?seed=dog-46010",
+        "La mezcla de aventura, animales y retos hace que parezca la canción de un videojuego de granja, y el estribillo se queda en la cabeza."
+    ]
+]
