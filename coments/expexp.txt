@@ -1,1 +1,37 @@
-
+[
+    [
+        "Mario123",
+        "https://api.dicebear.com/8.x/fun-emoji/svg?seed=bear-845098",
+        "Ese “Go Go Go” se te mete en la cabeza jajaja"
+    ],
+    [
+        "MinecraftAlex",
+        "https://api.dicebear.com/8.x/lorelei/svg?seed=dino-512573",
+        "Esta canción tiene energía de jefe final 🔥"
+    ],
+    [
+        "GokuFan7",
+        "https://picsum.photos/seed/2340/200/200",
+        "El estribillo está hecho para gritarlo con los amigos"
+    ],
+    [
+        "SonicRider",
+        "https://api.dicebear.com/8.x/lorelei/svg?seed=magic-348124",
+        "PS2 al Switch, qué viaje de nostalgia 🎮"
+    ],
+    [
+        "Pikachu99",
+        "https://api.dicebear.com/8.x/fun-emoji/svg?seed=dinosaurio-270297",
+        "No Respawn entendió perfectamente el caos gamer 😂"
+    ],
+    [
+        "MadridGamer",
+        "https://api.dicebear.com/8.x/adventurer/svg?seed=vehiculo-324401",
+        "Las guitarras rápidas y los coros hacen que parezca un himno de skate-punk gamer, y el cambio entre español e inglés le queda sorprendentemente bien"
+    ],
+    [
+        "Pepe123",
+        "https://api.dicebear.com/8.x/adventurer/svg?seed=superhero-229344",
+        "EXPLOIT EXPLOSION 💥"
+    ]
+]
