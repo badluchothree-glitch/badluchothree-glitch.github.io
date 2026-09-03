@@ -1,42 +1,42 @@
 [
     [
-        "Mario123",
-        "https://api.dicebear.com/8.x/lorelei/svg?seed=bear-978072",
-        "Esta canción de la gallina se me ha quedado pegada 😂🐔"
+        "SergioPlay_21",
+        "https://api.dicebear.com/8.x/micah/svg?seed=rocket-412501",
+        "La gallina corriendo por el corral me mata 😂🐔"
     ],
     [
-        "BlueyFan",
-        "https://api.dicebear.com/8.x/adventurer/svg?seed=trex-530500",
-        "La parte de “corre, corre rápido” es demasiado divertida jajaja"
+        "MadridAcuario",
+        "https://api.dicebear.com/8.x/avataaars/svg?seed=hero-330423",
+        "Ese “abre otro portal” se me ha quedado en la cabeza ✨🚪"
     ],
     [
-        "Pikachu88",
-        "https://api.dicebear.com/8.x/avataaars/svg?seed=ninja-139075",
-        "Uvas, fresas y un calabacín, necesito jugar este nivel ya 🍓🎮"
+        "RobloxLeo7",
+        "https://api.dicebear.com/8.x/fun-emoji/svg?seed=superhero-468536",
+        "Uvas, fresas y calabacín, menudo inventario 🍇🍓🥒"
     ],
     [
-        "MadridKids",
-        "https://api.dicebear.com/8.x/avataaars/svg?seed=space-388438",
-        "El gallo enfadado me da mucha risa 🐓😂"
+        "ElsaGamer12",
+        "https://api.dicebear.com/8.x/adventurer/svg?seed=magic-302091",
+        "El gallo enfadado es el verdadero jefe final 😂🐓"
     ],
     [
-        "SonicFan7",
-        "https://api.dicebear.com/8.x/lorelei/svg?seed=pirate-792608",
-        "Gallina terrenal, ¡juega otra vez! 🎮🐔"
+        "Numberblocks6",
+        "https://api.dicebear.com/8.x/adventurer/svg?seed=bear-730301",
+        "Tres gallinas y a correr, misión completada 🐔🐔🐔"
     ],
     [
-        "MinecraftAlex",
-        "https://api.dicebear.com/8.x/adventurer/svg?seed=bear-470301",
-        "El portal para desbloquear terrenos parece un nivel secreto 😎✨"
+        "TerraGreenFan",
+        "https://api.dicebear.com/8.x/bottts/svg?seed=coche-886270",
+        "Lo del barro, las botas y los nuevos terrenos le da vibra de aventura de videojuego y queda genial con el estribillo."
     ],
     [
-        "PeppaPig",
-        "https://api.dicebear.com/8.x/fun-emoji/svg?seed=dinosaurio-568084",
-        "La escucharía mil veces en el coche jajajaja"
+        "AcuarioNico",
+        "https://api.dicebear.com/8.x/bottts/svg?seed=castle-259784",
+        "La paloma que cuidan antes de soltarla es un detalle muy bonito ❤️🕊️"
     ],
     [
-        "Lucas42",
-        "https://api.dicebear.com/8.x/micah/svg?seed=dog-46010",
-        "La mezcla de aventura, animales y retos hace que parezca la canción de un videojuego de granja, y el estribillo se queda en la cabeza."
+        "MinecraftMario9",
+        "https://api.dicebear.com/8.x/adventurer/svg?seed=car-82432",
+        "Necesito desbloquear el terreno secreto ya mismo 🎮🌾"
     ]
 ]
