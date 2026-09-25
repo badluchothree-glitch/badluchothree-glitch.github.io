@@ -1,4 +1,6 @@
 [
+["Abuelito", "https://i.ibb.co/93TTWFNs/PERFPAPA.jpg", "⚠️🐓🥋 ¡Tengan cuidado con el gallo, que está aprendiendo kung-fu! 😂💥👊
+"],
     [
         "CarlosAventuras23",
         "https://picsum.photos/seed/3406/200/200",
@@ -8,11 +10,6 @@
         "SofiaCanta7",
         "https://api.dicebear.com/8.x/fun-emoji/svg?seed=dog-472509",
         "Ese portal de terrenos parece sacado de un juego 🎮✨"
-    ],
-    [
-        "ValenciaLucia",
-        "https://api.dicebear.com/8.x/micah/svg?seed=vehiculo-182446",
-        "Las fresas y las uvas ya son parte de la misión 🍓🍇"
     ],
     [
         "MinecraftLoco9",
@@ -28,11 +25,6 @@
         "TralaleroToni",
         "https://api.dicebear.com/8.x/lorelei/svg?seed=superhero-802677",
         "Gallina terrenal, abre otro portal 🐔🚪"
-    ],
-    [
-        "Numberblocks8",
-        "https://picsum.photos/seed/9543/200/200",
-        "Tres gallinas corriendo y yo ya estoy dentro de la misión 😂"
     ],
     [
         "TerraGreenAventuras",
