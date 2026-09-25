@@ -1,6 +1,5 @@
 [
-["Abuelito", "https://i.ibb.co/93TTWFNs/PERFPAPA.jpg", "⚠️🐓🥋 ¡Tengan cuidado con el gallo, que está aprendiendo kung-fu! 😂💥👊
-"],
+["Abuelito", "https://i.ibb.co/93TTWFNs/PERFPAPA.jpg", "⚠️🐓🥋 ¡Tengan cuidado con el gallo, que está aprendiendo kung-fu! 😂💥👊"],
     [
         "CarlosAventuras23",
         "https://picsum.photos/seed/3406/200/200",
