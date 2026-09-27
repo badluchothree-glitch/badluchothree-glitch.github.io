@@ -1,5 +1,7 @@
 [
 ["Abuelito", "https://i.ibb.co/93TTWFNs/PERFPAPA.jpg", "⚠️🐓🥋 ¡Tengan cuidado con el gallo, que está aprendiendo kung-fu! 😂💥👊"],
+
+["LuxioDEV93", "https://i.ibb.co/tT8PByrY/papaes.jpg", "Un saludo para Pikachero, Ama Amita , Numberblock y el Gallo Caaarlos que inspiraron esta canción 🐔🐔🐔🐓"],
     [
         "CarlosAventuras23",
         "https://picsum.photos/seed/3406/200/200",
