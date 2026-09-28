@@ -3,14 +3,14 @@
 
 ["LuxioDEV93", "https://i.ibb.co/tT8PByrY/papaes.jpg", "Un saludo para Pikachero, Ama Amita , Numberblock y el Gallo Caaarlos que inspiraron esta canción 🐔🐔🐔🐓"],
     [
+        "helenmalcas",
+        "https://i.ibb.co/pv0rxZ62/qqqkkk.jpg",
+        "El gallo Carlos 🐓 es el mejor"
+    ],
+    [
         "CarlosAventuras23",
         "https://picsum.photos/seed/3406/200/200",
         "La gallina no para ni un segundo 😂🐔"
-    ],
-    [
-        "SofiaCanta7",
-        "https://api.dicebear.com/8.x/fun-emoji/svg?seed=dog-472509",
-        "Ese portal de terrenos parece sacado de un juego 🎮✨"
     ],
     [
         "MinecraftLoco9",
