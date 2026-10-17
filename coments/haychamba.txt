@@ -5,6 +5,7 @@
         "https://i.ibb.co/pv0rxZ62/qqqkkk.jpg",
         "Nos gusta chambear 🫶🏻"
     ],
+["Jessy", "https://i.ibb.co/RTK2hZBv/avatar.jpg", "Qué bonito levantarse y chambear en el cole mi Nico.\nJessy"],
   ["Andrés_R", "https://i.pravatar.cc/150?img=12", "Esta canción me levanta el ánimo cada mañana 🔥"],
   ["SofiMusic", "https://i.pravatar.cc/150?img=5", "La letra es oro puro, se la dedico a todos los que siguen trabajando duro"],
   ["ElPibe_23", "https://i.pravatar.cc/150?img=33", "Ya la tengo en repetición desde ayer jajaja 😂"]
